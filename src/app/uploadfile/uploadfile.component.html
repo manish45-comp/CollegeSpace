@@ -1,0 +1,48 @@
+<!-- ***** Home Parallax Start ***** -->
+<section class="mini" id="uploadfile">
+    <div data-aos="zoom-in" data-aos-duration="2000" class="mini-content">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="info">
+                        <h1>Upload Your Notes</h1>
+                        <p>Upload your Notes , Question paper , Question Banks or any kind of Study material</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ***** upload Box Start ***** -->
+            <div class="row">
+                <form #form>
+                <div class="col text-center">
+                    <input #fileinput type="file" class="text-center inputdefault" (change)="selectFile($event)" id="realfileinput"/>
+                </div>
+            </form>
+            </div>
+            <div class="row align-items-center">
+                <div class="col text-center">
+                    <mat-progress-spinner mode="indeterminate" *ngIf="loading$ | async" ></mat-progress-spinner>
+                    <button id="actual-btn'" class="btn fileupload-zone" onclick="getElementById('realfileinput').click()">Click to select file</button>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-md-12 text-center">
+                    <button class="btn uploadbtn" #uploadbtn [disabled]="!selectedFiles" (click)="upload()">Upload File</button>
+                    <button class="btn uploadbtn2" (click)="RemoveFile()">Remove File</button>&nbsp;
+                </div>
+                <div *ngIf="alert" class="custom-alert">
+                    <div class="alert alert-success alert-dismissible fade show mt-3 " role="alert">
+                        <strong>Thank You.</strong> File is Completely Uploaded.
+                        <button type="button" (click)="closealert()" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                 </div>
+            </div>
+            <!-- ***** upload Box End ***** -->
+
+        </div>
+    </div>
+</section>
+<!-- ***** Home Parallax End ***** -->

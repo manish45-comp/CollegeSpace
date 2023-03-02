@@ -1,0 +1,10 @@
+.btn {
+    border-radius: 21px;
+}
+.downloadbtn{
+    padding: 5px 20px;
+    background-color: #73be88;
+    margin-top: 5px;
+    color: #fff;
+    letter-spacing: 1px;
+}

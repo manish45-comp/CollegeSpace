@@ -1,0 +1,132 @@
+
+<!-- ***** Downlaod Start ***** -->
+<section class="section" id="downloadfile">
+    <div class="container">
+        <!-- ***** Section Title Start ***** -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center-heading">
+                    <h2 class="section-title">Download Here!</h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="center-text">
+                    <p>For each subject, there are more than 200 Resources to practice for the exam.The PDF for each subject is given below.</p>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Section Title End ***** -->
+
+        <div class="row text-center">
+            <div class="col-md-6 col-12 col-sm-6 d-flex justify-content-around mb-2">
+                <div> <button type="submit" class="btn btn-primary btnfirstchild" (click)="getallfiles()">All</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesA()">A</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesB()">B</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesC()">C</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesD()">D</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesE()">E</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesF()">F</button></div>
+            </div>
+            <div class="col-md-6 col-12 col-sm-6 d-flex justify-content-around mb-2">
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesG()">G</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesH()">H</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesI()">I</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesJ()">J</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesK()">K</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesL()">L</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesM()">M</button></div>
+            </div>
+            <div class="col-md-6 col-12 col-sm-6 d-flex justify-content-around mb-2">
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesN()">N</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesO()">O</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesP()">P</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesQ()">Q</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesR()">R</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesS()">S</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesT()">T</button></div>
+            </div>
+            <div class="col-md-6 col-12 col-sm-6 d-flex justify-content-around">
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesU()">U</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesV()">V</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesW()">W</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesX()">X</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesY()">Y</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="SearchfilesZ()">Z</button></div>
+                <div> <button type="submit" class="btn btn-primary" (click)="noresult()">NA</button></div>
+            </div>
+        </div>
+
+
+
+
+
+        <hr>
+
+        <div class="filesdisplaylist">
+        <div *ngIf="na">
+            <div class="d-flex mb-2 align-self-start filecontainer" *ngFor="let file of data | paginate:{ itemsPerPage: 10, currentPage: page ,totalItems:totalLength}">
+                <div class="p-2"><i class="fa fa-file"></i></div>
+                <div class="p-2">
+                    <p>{{file}}</p>
+                </div>
+                <div class="p-2"><a href="https://manish1-bucket.s3.ap-south-1.amazonaws.com/{{file}}">Download</a></div>
+            </div>
+        </div>
+        <div *ngIf="ndsf">
+            <div class="d-flex mb-4 align-self-start filecontainer" *ngFor="let filesmall of smalldata">
+                <div class="p-2"><i class="fa fa-file"></i></div>
+                <div class="p-2">
+                    <p>{{filesmall}}</p>
+                </div>
+                <div class="p-2"><a href="https://manish1-bucket.s3.ap-south-1.amazonaws.com/{{filesmall}}">Download</a></div>
+            </div>
+        </div>
+
+        <mat-progress-spinner mode="indeterminate" *ngIf="loading$ | async" ></mat-progress-spinner>
+        <div class="nofiles container" *ngIf="nofiles">
+            <h4>No Results Found</h4>
+        </div>
+        </div>
+        <div class="text-center mt-3">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+
+        <!-- Letest upload section -->
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="center-heading">
+                    <h2 class="section-title">Letest Uploads!</h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="center-text">
+                    <p>Discover some letest uploads.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+
+            <!-- Diaplay files in cards -->
+            <div class="col-md-6 col-12 col-sm-6 col-lg-3" *ngFor="let lfile of fileletest | async">
+                <div class="card text-center mb-4 cardhover" style="height: 19rem;">
+                    <div class="text-center">
+                        <img class=" rounded mt-5 card-img-top" style="width: 5rem;" src="../../assets/images/512x512.png">
+                    </div>
+                    <div class="card-body ">
+                        <p class="card-text mb-2">Click below link to <span class="font-weight-bold text-success">Free</span> Download</p>
+                        <p class="filename">{{lfile}}</p>
+                        <div class="card-button">
+                        <app-file-details [fileUpload]='lfile'></app-file-details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Diaplay files in cards ends -->
+        </div>
+
+    </div>
+
+</section>
+<!-- ***** Download End ***** -->

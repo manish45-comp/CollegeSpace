@@ -1,0 +1,50 @@
+.tutorial {
+    margin-top: 40px;
+}
+
+.homebtn {
+    width: 200px;
+    height: 48px;
+    text-align: center;
+    background: linear-gradient(-45deg, #73be88, #65a577);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0px 5px 10px #aaaaaa;
+    transition: all 1s ease-in;
+    position: relative;
+    overflow: hidden !important;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.homebtn:hover {
+    background: linear-gradient(-45deg, #65a577, #73be88);
+}
+
+.modal-content {
+    border-radius: 20px !important;
+}
+
+.uploadmodalimg {
+    width: 100%;
+}
+
+.modalcontent {
+    padding: 20px;
+}
+
+.steptext {
+    padding: 20px;
+    text-align: center;
+}
+
+.stepimg {
+    padding: 20px;
+    text-align: center;
+}
+
+.steptext span {
+    font-size: 2rem;
+    color: #73be88;
+}
